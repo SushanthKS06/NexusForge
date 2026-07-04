@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 async function main() {
-  console.log("🚀 Deploying NexusNFT...\n");
+  console.log("Deploying NexusNFT...\n");
 
   // ============ Deployment Configuration ============
   const config = {
@@ -41,7 +41,7 @@ async function main() {
   if (config.maxMintPerWallet > 20) throw new Error("Max mint per wallet exceeds 20");
   if (config.allowlistMintLimit > 5) throw new Error("Allowlist mint limit exceeds 5");
 
-  console.log("📋 Deployment Configuration:");
+  console.log("Deployment Configuration:");
   console.log("─".repeat(50));
   console.log(`Name: ${config.name}`);
   console.log(`Symbol: ${config.symbol}`);
@@ -57,11 +57,11 @@ async function main() {
 
   // Get deployer
   const [deployer] = await ethers.getSigners();
-  console.log(`👤 Deployer: ${deployer.address}`);
-  console.log(`💰 Balance: ${ethers.formatEther(await deployer.getBalance())} ETH\n`);
+  console.log(`Deployer: ${deployer.address}`);
+  console.log(`Balance: ${ethers.formatEther(await deployer.getBalance())} ETH\n`);
 
   // Deploy contract
-  console.log("📦 Deploying contract...");
+  console.log("Deploying contract...");
   const NexusNFT = await ethers.getContractFactory("NexusNFT");
   
   const contract = await NexusNFT.deploy(
@@ -82,16 +82,16 @@ async function main() {
   await contract.waitForDeployment();
   const contractAddress = await contract.getAddress();
 
-  console.log(`✅ Contract deployed to: ${contractAddress}`);
-  console.log(`📝 Transaction: ${contract.deploymentTransaction().hash}\n`);
+  console.log(`Contract deployed to: ${contractAddress}`);
+  console.log(`Transaction: ${contract.deploymentTransaction().hash}\n`);
 
   // Verify on Etherscan if not local network
   const network = hre.network.name;
   if (network !== "hardhat" && network !== "localhost") {
-    console.log("⏳ Waiting for block confirmations...");
+    console.log("Waiting for block confirmations...");
     await contract.deploymentTransaction().wait(5);
     
-    console.log("🔍 Verifying contract on Etherscan...");
+    console.log("Verifying contract on Etherscan...");
     try {
       await hre.run("verify:verify", {
         address: contractAddress,
@@ -110,9 +110,9 @@ async function main() {
           config.royaltyBps,
         ],
       });
-      console.log("✅ Contract verified on Etherscan\n");
+      console.log("Contract verified on Etherscan\n");
     } catch (error) {
-      console.log(`⚠️ Verification failed: ${error.message}\n`);
+      console.log(`Verification failed: ${error.message}\n`);
     }
   }
 
@@ -134,11 +134,11 @@ async function main() {
 
   const deploymentFile = path.join(deploymentsDir, `${network}-${Date.now()}.json`);
   fs.writeFileSync(deploymentFile, JSON.stringify(deploymentInfo, null, 2));
-  console.log(`💾 Deployment info saved to: ${deploymentFile}\n`);
+  console.log(`Deployment info saved to: ${deploymentFile}\n`);
 
   // Print summary
   console.log("═".repeat(50));
-  console.log("🎉 DEPLOYMENT COMPLETE");
+  console.log("DEPLOYMENT COMPLETE");
   console.log("═".repeat(50));
   console.log(`Contract: ${contractAddress}`);
   console.log(`Network: ${network}`);
@@ -146,7 +146,7 @@ async function main() {
   console.log("═".repeat(50));
 
   // Post-deployment instructions
-  console.log("\n📋 NEXT STEPS:");
+  console.log("\nNEXT STEPS:");
   console.log("1. Upload unrevealed metadata to IPFS and update notRevealedUri");
   console.log("2. Generate Merkle root for allowlist and call setMerkleRoot()");
   console.log("3. When ready, upload revealed metadata to IPFS and call reveal()");
@@ -166,6 +166,6 @@ function getExplorerUrl(network, address) {
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error("❌ Deployment failed:", error);
+    console.error("Deployment failed:", error);
     process.exit(1);
   });
