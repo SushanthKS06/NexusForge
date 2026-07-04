@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "@rainbow-me/rainbowkit/styles.css";
+
+:root {
+  --background: 0 0% 3%;
+  --foreground: 0 0% 93%;
+  --card: 0 0% 5%;
+  --card-foreground: 0 0% 93%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 0 0% 93%;
+  --primary: 180 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 180 5% 15%;
+  --secondary-foreground: 180 5% 85%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 60%;
+  --accent: 180 70% 25%;
+  --accent-foreground: 0 0% 93%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 93%;
+  --border: 180 20% 20%;
+  --input: 180 20% 20%;
+  --ring: 180 100% 50%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Cyber grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Neon glow effects */
+.neon-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+              0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.neon-glow:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+              0 0 40px rgba(0, 255, 255, 0.2);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5),
+               0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(0, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg,
+    hsl(var(--muted)) 25%,
+    hsl(var(--accent)) 50%,
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}

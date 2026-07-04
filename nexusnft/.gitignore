@@ -1,0 +1,35 @@
+node_modules/
+cache/
+artifacts/
+typechain-types/
+
+# Deployments
+deployments/
+!deployments/.gitkeep
+
+# Frontend
+.frontend/next/
+frontend/.next/
+frontend/out/
+
+# Environment
+.env
+.env.local
+
+# Coverage
+coverage/
+coverage.json
+
+# Hardhat
+gas-report.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
