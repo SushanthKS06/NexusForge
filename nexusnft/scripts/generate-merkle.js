@@ -29,7 +29,7 @@ function encodeLeaf(address) {
   ).toString("hex");
 }
 
-console.log("🌳 Generating Merkle Tree...\n");
+console.log("Generating Merkle Tree...\n");
 console.log("Addresses in allowlist:", allowlist.length);
 console.log("─".repeat(60));
 
@@ -38,7 +38,7 @@ const leafNodes = allowlist.map((addr) => keccak256(addr));
 const tree = new MerkleTree(leafNodes, keccak256, { sortPairs: true });
 const root = tree.getHexRoot();
 
-console.log(`\n📋 Merkle Root: ${root}\n`);
+console.log(`\nMerkle Root: ${root}\n`);
 
 // Generate proofs for each address
 const proofs = allowlist.map((addr) => {
@@ -74,6 +74,6 @@ const outputData = {
 };
 
 fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
-console.log(`💾 Allowlist proofs saved to: ${outputPath}\n`);
-console.log("✅ Done! Use the merkleRoot above when calling setMerkleRoot()");
-console.log("📖 Include the proofs in your frontend for allowlist minting\n");
+console.log(`Allowlist proofs saved to: ${outputPath}\n`);
+console.log("Done! Use the merkleRoot above when calling setMerkleRoot()");
+console.log("Include the proofs in your frontend for allowlist minting\n");
