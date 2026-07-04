@@ -10,7 +10,7 @@
 <br/>
 
 <div align="center">
-  <h1>🚀 NexusNFT</h1>
+  <h1>NexusNFT</h1>
   <h3>Production-Ready NFT Minting Platform</h3>
   <p><i>Gas-efficient minting · Blind reveal · Royalty support · Allowlist with Merkle proofs</i></p>
 </div>
@@ -32,25 +32,25 @@
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| ⚡ **Gas Optimized** | ERC-721A core — batch minting costs amortized across multiple tokens |
-| 🎭 **Blind Mint & Reveal** | Mint unrevealed tokens → reveal metadata after sale ends |
-| 💰 **ERC-2981 Royalties** | Default 7.5% royalty on secondary sales |
-| 📜 **Allowlist / Presale** | Gas-efficient Merkle proof verification |
-| 🛡️ **Access Controls** | Ownable, ReentrancyGuard, Pausable |
-| 🔢 **Per-Wallet Limits** | Configurable mint caps for public and allowlist |
-| 🏦 **Owner Withdrawal** | Secure ETH and ERC20 withdrawal functions |
-| 📊 **Live Counter** | Real-time total minted and remaining supply |
-| 🔍 **Reveal Status** | Track unrevealed/revealed state on-chain |
-| 🎨 **Dark Futuristic UI** | Cyber aesthetic, glassmorphism, neon glow effects |
-| 🎉 **Confetti on Mint** | Celebratory confetti animation on successful mints |
-| 📱 **Fully Responsive** | Mobile-first design, works on all devices |
-| 🔗 **Wallet Integration** | RainbowKit with MetaMask, WalletConnect, Coinbase, and more |
+| **Gas Optimized** | ERC-721A core — batch minting costs amortized across multiple tokens |
+| **Blind Mint & Reveal** | Mint unrevealed tokens → reveal metadata after sale ends |
+| **ERC-2981 Royalties** | Default 7.5% royalty on secondary sales |
+| **Allowlist / Presale** | Gas-efficient Merkle proof verification |
+| **Access Controls** | Ownable, ReentrancyGuard, Pausable |
+| **Per-Wallet Limits** | Configurable mint caps for public and allowlist |
+| **Owner Withdrawal** | Secure ETH and ERC20 withdrawal functions |
+| **Live Counter** | Real-time total minted and remaining supply |
+| **Reveal Status** | Track unrevealed/revealed state on-chain |
+| **Dark Futuristic UI** | Cyber aesthetic, glassmorphism, neon glow effects |
+| **Confetti on Mint** | Celebratory confetti animation on successful mints |
+| **Fully Responsive** | Mobile-first design, works on all devices |
+| **Wallet Integration** | RainbowKit with MetaMask, WalletConnect, Coinbase, and more |
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Smart Contract
 
@@ -83,7 +83,7 @@
 | Pinata / NFT.Storage | Permanent IPFS metadata storage |
 | IPFS Gateways | Content delivery |
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 nexusnft/
@@ -129,7 +129,7 @@ nexusnft/
 └── README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -207,7 +207,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) and connect your wallet.
 
-## 📝 Smart Contract
+## Smart Contract
 
 ### Architecture
 
@@ -247,15 +247,15 @@ error ZeroAddress();
 
 | Parameter | Constructor | Default |
 |-----------|-------------|---------|
-| Max Supply | ✔️ | 10,000 |
-| Max Mint/Wallet | ✔️ | 20 |
-| Allowlist Limit | ✔️ | 5 |
-| Public Price | ✔️ | 0.05 ETH |
-| Allowlist Price | ✔️ | 0.03 ETH |
-| Royalty | ✔️ | 7.5% |
-| Sale Times | ✔️ | Configurable |
+| Max Supply | ✓ | 10,000 |
+| Max Mint/Wallet | ✓ | 20 |
+| Allowlist Limit | ✓ | 5 |
+| Public Price | ✓ | 0.05 ETH |
+| Allowlist Price | ✓ | 0.03 ETH |
+| Royalty | ✓ | 7.5% |
+| Sale Times | ✓ | Configurable |
 
-## 🎨 Frontend
+## Frontend
 
 ### Pages
 
@@ -286,7 +286,7 @@ The admin page (`/admin`) provides owner-only controls for:
 - Pause/unpause minting
 - Withdraw contract funds
 
-## 📦 Deployment
+## Deployment
 
 ### Testnet (Sepolia)
 
@@ -315,7 +315,7 @@ The deployment script:
 4. **Update frontend** `.env` with contract address
 5. **Reveal collection** after minting ends
 
-## 🎨 Customization
+## Customization
 
 ### Collection Parameters
 
@@ -344,7 +344,7 @@ Edit `frontend/src/app/globals.css` to customize:
 - Background effects
 - Component styles
 
-## 🛡️ Security
+## Security
 
 ### Contract Security
 
@@ -373,7 +373,7 @@ For production deployment, consider a professional audit from:
 - OpenZeppelin
 - Certik
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run test suite
@@ -397,7 +397,7 @@ Test coverage includes:
 - Royalty management
 - Edge cases and error states
 
-## 📚 Documentation
+## Documentation
 
 | Document | Description |
 |----------|-------------|
@@ -406,26 +406,26 @@ Test coverage includes:
 | `docs/deployment.md` | Full deployment workflow |
 | `docs/ipfs-guide.md` | IPFS upload guide and metadata generation |
 
-## 🔮 Future Improvements
+## Future Improvements
 
 | Feature | Description |
 |---------|-------------|
-| 🌐 **Subgraph Integration** | The Graph for efficient token queries |
-| 🎲 **Randomized Reveal** | Fisher-Yates shuffle for true random reveal |
-| 🔒 **Signature-Based Allowlist** | EIP-712 typed signatures as alternative |
-| 💎 **Staking** | Stake NFTs for rewards or governance tokens |
-| 🔄 **Lazy Minting** | Mint on first transfer for zero gas on launch |
-| 📈 **Tiered Pricing** | Dynamic pricing based on demand |
-| 🏗️ **DAO Governance** | Community voting for treasury management |
-| 🌉 **Cross-Chain Bridge** | Expand to L2s (Arbitrum, Optimism) |
-| 🔍 **On-Chain Metadata** | Fully on-chain SVG art (like OnChainMonkeys) |
-| 🎯 **Custom Traits** | User-selectable traits during mint |
+| **Subgraph Integration** | The Graph for efficient token queries |
+| **Randomized Reveal** | Fisher-Yates shuffle for true random reveal |
+| **Signature-Based Allowlist** | EIP-712 typed signatures as alternative |
+| **Staking** | Stake NFTs for rewards or governance tokens |
+| **Lazy Minting** | Mint on first transfer for zero gas on launch |
+| **Tiered Pricing** | Dynamic pricing based on demand |
+| **DAO Governance** | Community voting for treasury management |
+| **Cross-Chain Bridge** | Expand to L2s (Arbitrum, Optimism) |
+| **On-Chain Metadata** | Fully on-chain SVG art (like OnChainMonkeys) |
+| **Custom Traits** | User-selectable traits during mint |
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [OpenZeppelin](https://openzeppelin.com/) for secure contract libraries
 - [ERC-721A](https://www.erc721a.org/) by Azuki for gas-efficient NFT standard
