@@ -436,5 +436,5 @@ This project is licensed under the **MIT License** — see the LICENSE file for 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for the future of digital art · NexusNFT</sub>
+  <sub>For the future of digital art · NexusNFT</sub>
 </div>
