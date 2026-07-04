@@ -74,7 +74,7 @@ async function uploadToIPFS(filePath, fileName) {
     });
     return response.data.IpfsHash;
   } catch (error) {
-    console.error(`❌ Upload failed for ${fileName}:`, error.response?.data || error.message);
+    console.error(`Upload failed for ${fileName}:`, error.response?.data || error.message);
     return null;
   }
 }
@@ -107,7 +107,7 @@ async function uploadJSONToIPFS(jsonData, fileName) {
     });
     return response.data.IpfsHash;
   } catch (error) {
-    console.error(`❌ JSON upload failed for ${fileName}:`, error.response?.data || error.message);
+    console.error(`JSON upload failed for ${fileName}:`, error.response?.data || error.message);
     return null;
   }
 }
@@ -159,12 +159,12 @@ function generateMetadata(tokenId, imageCid) {
  * Main function
  */
 async function main() {
-  console.log("🚀 NexusNFT IPFS Upload Script\n");
+  console.log("NexusNFT IPFS Upload Script\n");
   
   // Validate JWT
   if (!PINATA_JWT) {
-    console.error("❌ PINATA_JWT not set! Please configure .env file.");
-    console.log("\n📖 Get your JWT at https://app.pinata.cloud/developers/api-keys");
+    console.error("PINATA_JWT not set! Please configure .env file.");
+    console.log("\nGet your JWT at https://app.pinata.cloud/developers/api-keys");
     process.exit(1);
   }
   
@@ -175,10 +175,10 @@ async function main() {
     }
   });
 
-  console.log("📁 Directories checked/created\n");
+  console.log("Directories checked/created\n");
 
   // Step 1: Upload images
-  console.log("📸 STEP 1: Uploading images to IPFS...");
+  console.log("STEP 1: Uploading images to IPFS...");
   console.log("─".repeat(50));
   
   const imageFiles = fs.readdirSync(IMAGES_DIR).filter(f => 
@@ -186,7 +186,7 @@ async function main() {
   );
 
   if (imageFiles.length === 0) {
-    console.log("⚠️ No image files found. Place your images in assets/images/ folder.");
+    console.log("No image files found. Place your images in assets/images/ folder.");
     console.log(`   Expected files: 1.png, 2.png, ..., ${TOTAL_NFTS}.png`);
     console.log("   Creating placeholder metadata script...\n");
     
@@ -213,7 +213,7 @@ You can use these tools to generate images:
 - Consistent style across collection
 - No watermarks or signatures
 `);
-    console.log(`📝 Created asset guide at ${guidePath}\n`);
+    console.log(`Created asset guide at ${guidePath}\n`);
     return;
   }
 
@@ -228,14 +228,14 @@ You can use these tools to generate images:
     if (cid) {
       const tokenId = parseInt(fileName.replace(/\.[^/.]+$/, ""));
       imageCids[tokenId] = cid;
-      console.log(`  ✅ Uploaded! CID: ${cid}`);
+      console.log(`  Uploaded! CID: ${cid}`);
     }
   }
 
-  console.log("\n✅ Image upload complete!\n");
+  console.log("\n Image upload complete!\n");
 
   // Step 2: Generate and upload metadata
-  console.log("📝 STEP 2: Generating and uploading metadata...");
+  console.log("STEP 2: Generating and uploading metadata...");
   console.log("─".repeat(50));
 
   const metadataCids = {};
@@ -260,12 +260,12 @@ You can use these tools to generate images:
     const cid = await uploadJSONToIPFS(metadata, fileName);
     if (cid) {
       metadataCids[tokenId] = cid;
-      console.log(`  ✅ Uploaded! CID: ${cid}`);
+      console.log(`  Uploaded! CID: ${cid}`);
     }
   }
 
   // Step 3: Generate and upload collection metadata
-  console.log("\n📦 STEP 3: Generating collection metadata...");
+  console.log("\n STEP 3: Generating collection metadata...");
   console.log("─".repeat(50));
 
   // Generate the "unrevealed" placeholder metadata
@@ -285,7 +285,7 @@ You can use these tools to generate images:
   console.log(`  Unrevealed metadata CID: ${unrevealedCid || "Failed"}`);
 
   // Step 4: Save deployment info
-  console.log("\n💾 STEP 4: Saving deployment info...");
+  console.log("\n STEP 4: Saving deployment info...");
   console.log("─".repeat(50));
 
   const ipfsInfo = {
@@ -306,15 +306,15 @@ You can use these tools to generate images:
   console.log(`  Saved to ${infoPath}`);
 
   console.log("\n" + "═".repeat(50));
-  console.log("🎉 IPFS UPLOAD COMPLETE");
+  console.log(" IPFS UPLOAD COMPLETE");
   console.log("═".repeat(50));
   
   // Summary
-  console.log("\n📋 DEPLOYMENT INFORMATION");
+  console.log("\n DEPLOYMENT INFORMATION");
   console.log(`  Contract base URI: ${ipfsInfo.baseUri}`);
   console.log(`  Unrevealed URI: ${ipfsInfo.unrevealed.uri}`);
   console.log(`  Total NFTs: ${Object.keys(imageCids).length}`);
-  console.log("\n📖 NEXT STEPS:");
+  console.log("\n NEXT STEPS:");
   console.log("  1. Update contract's notRevealedUri with unrevealed metadata URI");
   console.log("  2. Deploy contract");
   console.log("  3. After minting ends, call reveal() with base metadata URI");
